@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Tienda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <h1>Tienda TECNOLOGICA</h1>
+        <div id="usuarioInfo" class="usuarioInfo"></div>
+    </header>
+
+    <main>
+        <section id="catalogo" class="catalogo"></section>
+
+        <section id="carrito" class="carrito"></section>
+
+        <section id="totales" class="totales"></section>
+
+        <section id="resumen" class="resumen"></section>
+
+        <div class="botones">
+            <button id="vaciarBtn">Vaciar Carrito</button>
+            <button id="finalizarBtn">Finalizar Compra</button>
+        </div>
+    </main>
+
+    <!-- Modal Registro -->
+    <div id="overlay" class="overlay hidden">
+        <div class="modal">
+            <h2>Registro de Usuario</h2>
+            <form id="registroForm">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" required>
+
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" required>
+
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" required min="18">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Login -->
+    <div id="overlayLogin" class="overlay hidden">
+        <div class="modal">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" required>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="carrito.js"></script>
+</body>
+</html>
