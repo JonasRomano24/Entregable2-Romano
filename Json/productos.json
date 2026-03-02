@@ -1,0 +1,272 @@
+[
+    {
+        "id": 1,
+        "nombre": "Auriculares Bluetooth",
+        "precio": 1200,
+        "icon": "fa-headphones",
+        "categoria": "Audio",
+        "stock": 15,
+        "descripcion": "Auriculares inalámbricos con cancelación de ruido."
+    },
+    {
+        "id": 2,
+        "nombre": "Mouse inalámbrico",
+        "precio": 900,
+        "icon": "fa-mouse",
+        "categoria": "Periféricos",
+        "stock": 25,
+        "descripcion": "Mouse ergonómico con conexión USB."
+    },
+    {
+        "id": 3,
+        "nombre": "Teclado mecánico RGB",
+        "precio": 2500,
+        "icon": "fa-keyboard",
+        "categoria": "Periféricos",
+        "stock": 10,
+        "descripcion": "Teclado mecánico con iluminación RGB."
+    },
+    {
+        "id": 4,
+        "nombre": "Monitor 24 pulgadas",
+        "precio": 8200,
+        "icon": "fa-desktop",
+        "categoria": "Pantallas",
+        "stock": 8,
+        "descripcion": "Monitor Full HD con entrada HDMI."
+    },
+    {
+        "id": 5,
+        "nombre": "Disco SSD 1TB",
+        "precio": 4500,
+        "icon": "fa-hdd",
+        "categoria": "Almacenamiento",
+        "stock": 12,
+        "descripcion": "Unidad SSD de alta velocidad."
+    },
+    {
+        "id": 6,
+        "nombre": "Memoria USB 64GB",
+        "precio": 600,
+        "icon": "fa-usb",
+        "categoria": "Almacenamiento",
+        "stock": 40,
+        "descripcion": "Pendrive USB 3.0."
+    },
+    {
+        "id": 7,
+        "nombre": "Webcam HD",
+        "precio": 1500,
+        "icon": "fa-video",
+        "categoria": "Accesorios",
+        "stock": 18,
+        "descripcion": "Cámara web 1080p con micrófono integrado."
+    },
+    {
+        "id": 8,
+        "nombre": "Parlante Bluetooth",
+        "precio": 1800,
+        "icon": "fa-volume-up",
+        "categoria": "Audio",
+        "stock": 20,
+        "descripcion": "Parlante portátil resistente al agua."
+    },
+    {
+        "id": 9,
+        "nombre": "Laptop 15\"",
+        "precio": 35000,
+        "icon": "fa-laptop",
+        "categoria": "Computadoras",
+        "stock": 5,
+        "descripcion": "Notebook con 8GB RAM y SSD 512GB."
+    },
+    {
+        "id": 10,
+        "nombre": "Tablet 10\"",
+        "precio": 12000,
+        "icon": "fa-tablet",
+        "categoria": "Dispositivos móviles",
+        "stock": 7,
+        "descripcion": "Tablet Android con 64GB de almacenamiento."
+    },
+    {
+        "id": 11,
+        "nombre": "Smartphone 128GB",
+        "precio": 22000,
+        "icon": "fa-mobile",
+        "categoria": "Dispositivos móviles",
+        "stock": 9,
+        "descripcion": "Teléfono con cámara triple y pantalla AMOLED."
+    },
+    {
+        "id": 12,
+        "nombre": "Smartwatch",
+        "precio": 7500,
+        "icon": "fa-clock",
+        "categoria": "Wearables",
+        "stock": 14,
+        "descripcion": "Reloj inteligente con monitor cardíaco."
+    },
+    {
+        "id": 13,
+        "nombre": "Cámara digital",
+        "precio": 28000,
+        "icon": "fa-camera",
+        "categoria": "Fotografía",
+        "stock": 4,
+        "descripcion": "Cámara réflex 24MP."
+    },
+    {
+        "id": 14,
+        "nombre": "Router WiFi 6",
+        "precio": 5200,
+        "icon": "fa-wifi",
+        "categoria": "Redes",
+        "stock": 11,
+        "descripcion": "Router de alta velocidad con doble banda."
+    },
+    {
+        "id": 15,
+        "nombre": "Impresora multifunción",
+        "precio": 6800,
+        "icon": "fa-print",
+        "categoria": "Oficina",
+        "stock": 6,
+        "descripcion": "Imprime, escanea y copia."
+    },
+    {
+        "id": 16,
+        "nombre": "Placa de video 8GB",
+        "precio": 42000,
+        "icon": "fa-microchip",
+        "categoria": "Componentes",
+        "stock": 3,
+        "descripcion": "GPU ideal para gaming."
+    },
+    {
+        "id": 17,
+        "nombre": "Fuente 650W",
+        "precio": 4800,
+        "icon": "fa-bolt",
+        "categoria": "Componentes",
+        "stock": 10,
+        "descripcion": "Fuente certificada 80 Plus."
+    },
+    {
+        "id": 18,
+        "nombre": "Gabinete Gamer",
+        "precio": 3900,
+        "icon": "fa-server",
+        "categoria": "Componentes",
+        "stock": 7,
+        "descripcion": "Gabinete con panel lateral de vidrio."
+    },
+    {
+        "id": 19,
+        "nombre": "Disco externo 2TB",
+        "precio": 7200,
+        "icon": "fa-hdd",
+        "categoria": "Almacenamiento",
+        "stock": 9,
+        "descripcion": "Disco portátil USB 3.0."
+    },
+    {
+        "id": 20,
+        "nombre": "Joystick inalámbrico",
+        "precio": 2600,
+        "icon": "fa-gamepad",
+        "categoria": "Gaming",
+        "stock": 16,
+        "descripcion": "Control compatible con PC y consola."
+    },
+    {
+        "id": 21,
+        "nombre": "Silla Gamer",
+        "precio": 14500,
+        "icon": "fa-chair",
+        "categoria": "Gaming",
+        "stock": 5,
+        "descripcion": "Silla ergonómica reclinable."
+    },
+    {
+        "id": 22,
+        "nombre": "Micrófono USB",
+        "precio": 3200,
+        "icon": "fa-microphone",
+        "categoria": "Audio",
+        "stock": 13,
+        "descripcion": "Micrófono ideal para streaming."
+    },
+    {
+        "id": 23,
+        "nombre": "Proyector LED",
+        "precio": 15500,
+        "icon": "fa-video",
+        "categoria": "Pantallas",
+        "stock": 4,
+        "descripcion": "Proyector Full HD portátil."
+    },
+    {
+        "id": 24,
+        "nombre": "Power Bank 20000mAh",
+        "precio": 2100,
+        "icon": "fa-battery-full",
+        "categoria": "Accesorios",
+        "stock": 22,
+        "descripcion": "Batería externa de carga rápida."
+    },
+    {
+        "id": 25,
+        "nombre": "Cable HDMI 2m",
+        "precio": 450,
+        "icon": "fa-plug",
+        "categoria": "Accesorios",
+        "stock": 50,
+        "descripcion": "Cable HDMI de alta velocidad."
+    },
+    {
+        "id": 26,
+        "nombre": "Hub USB 4 puertos",
+        "precio": 1100,
+        "icon": "fa-usb",
+        "categoria": "Accesorios",
+        "stock": 19,
+        "descripcion": "Expansor USB compacto."
+    },
+    {
+        "id": 27,
+        "nombre": "Memoria RAM 16GB",
+        "precio": 6700,
+        "icon": "fa-memory",
+        "categoria": "Componentes",
+        "stock": 8,
+        "descripcion": "DDR4 alta frecuencia."
+    },
+    {
+        "id": 28,
+        "nombre": "Notebook Gamer",
+        "precio": 68000,
+        "icon": "fa-laptop",
+        "categoria": "Computadoras",
+        "stock": 2,
+        "descripcion": "Laptop con GPU dedicada y 16GB RAM."
+    },
+    {
+        "id": 29,
+        "nombre": "Smart TV 50\"",
+        "precio": 41000,
+        "icon": "fa-tv",
+        "categoria": "Pantallas",
+        "stock": 3,
+        "descripcion": "Televisor 4K UHD con apps integradas."
+    },
+    {
+        "id": 30,
+        "nombre": "Drone con cámara",
+        "precio": 37000,
+        "icon": "fa-helicopter",
+        "categoria": "Fotografía",
+        "stock": 2,
+        "descripcion": "Drone 4K con estabilización."
+    }
+]

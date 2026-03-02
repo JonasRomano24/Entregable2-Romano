@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Tienda Tecnológica</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Tienda TECNOLOGICA</h1>
+
+            <nav class="main-nav">
+                <a href="../index.html" class="nav-link carrito-link" id="cartBtn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Carrito
+                    <span class="cart-count" id="cartCount">0</span>
+
+                    <!-- MINI CART -->
+                    <div class="mini-cart" id="miniCart"></div>
+                </a>
+
+                <a href="/pages/productos.html" class="nav-link">
+                    <i class="fa-solid fa-box-open"></i>
+                    Productos
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2 class="titulo-seccion">Nuestros Productos</h2>
+            <section id="catalogo" class="catalogo"></section>
+        </section>
+    </main>
+
+    <script src="../js/productos.js"></script>
+</body>
+
+</html>

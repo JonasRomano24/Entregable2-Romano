@@ -4,12 +4,7 @@ const DESCUENTO_UMBRAL = 3000;
 const DESCUENTO_PORC = 0.1;
 
 // ===== PRODUCTOS =====
-const productos = [
-    { id: 1, nombre: "Auriculares", precio: 1200, icon: "fa-headphones" },
-    { id: 2, nombre: "Mouse", precio: 900, icon: "fa-mouse" },
-    { id: 3, nombre: "Teclado", precio: 1600, icon: "fa-keyboard" },
-    { id: 4, nombre: "Webcam", precio: 2200, icon: "fa-camera" }
-];
+let productos = [];
 
 // ===== ESTADOS =====
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -25,6 +20,19 @@ const registroForm = document.getElementById("registroForm");
 const overlayLogin = document.getElementById("overlayLogin");
 const loginForm = document.getElementById("loginForm");
 const usuarioInfoDiv = document.getElementById("usuarioInfo");
+
+// ===== FUNCION PARA CARGAR CON FETCH =====
+async function cargarProductos() {
+    try {
+        const response = await fetch("../Json/productos.json"); // ajustá la ruta si está en otra carpeta
+        const data = await response.json();
+        productos = data;
+        mostrarCatalogo();
+    } catch (error) {
+        console.error("Error cargando productos:", error);
+        catalogoDiv.innerHTML = "<p>Error al cargar productos.</p>";
+    }
+}
 
 // ===== FUNCIONES =====
 function mostrarCatalogo() {
@@ -132,13 +140,34 @@ function mostrarResumen() {
     mostrarUsuario();
 }
 
+
+function actualizarContadorCarrito() {
+    const cartCount = document.getElementById("cartCount");
+    const carritoStorage = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    const totalItems = carritoStorage.reduce((acc, item) => acc + item.cantidad, 0);
+
+    if (cartCount) {
+        cartCount.textContent = totalItems;
+    }
+}
+
 // ===== STORAGE + RENDER =====
 function actualizarEstado() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarContadorCarrito();
     mostrarCarrito();
     mostrarTotales();
 }
+document.addEventListener("DOMContentLoaded", () => {
+    actualizarContadorCarrito();
 
+    document.querySelectorAll(".nav-link").forEach(link => {
+        if (link.href === window.location.href) {
+            link.classList.add("active");
+        }
+    });
+});
 // ===== EVENTOS =====
 document.getElementById("vaciarBtn").addEventListener("click", () => {
     carrito = [];
@@ -152,7 +181,7 @@ document.getElementById("finalizarBtn").addEventListener("click", () => {
         if (opcion) overlayLogin.classList.add("active");
         else overlay.classList.add("active");
     } else {
-        mostrarResumen();
+        mostrarFactura();
     }
 });
 
@@ -170,7 +199,7 @@ registroForm.addEventListener("submit", (e) => {
     localStorage.setItem("usuario", JSON.stringify(usuario));
     overlay.classList.remove("active");
     mostrarUsuario();
-    mostrarResumen();
+    mostrarFactura();
 });
 
 // ===== LOGIN =====
@@ -183,68 +212,74 @@ loginForm.addEventListener("submit", (e) => {
         usuario = usuarioGuardado;
         overlayLogin.classList.remove("active");
         mostrarUsuario();
-        mostrarResumen();
+        mostrarFactura();
     } else {
         alert("Usuario no encontrado. Por favor regístrate.");
     }
 });
 
 // ===== INIT =====
-mostrarCatalogo();
+cargarProductos();
 mostrarCarrito();
 mostrarTotales();
 mostrarUsuario();
 
-// ===== FACTURA =====
 function mostrarFactura() {
     const t = calcularTotales();
 
-    // Limpiamos las secciones principales
+    const facturaHTML = `
+        <div class="factura" style="text-align:left">
+            <h2>Factura de Compra</h2>
+            <p><strong>Cliente:</strong> ${usuario.nombre} ${usuario.apellido}</p>
+            <p><strong>Email:</strong> ${usuario.email}</p>
+            <hr>
+            <h3>Productos Comprados:</h3>
+            <ul>
+                ${carrito.map(item => `
+                    <li>
+                        ${item.nombre} x${item.cantidad} - 
+                        $${(item.precio * item.cantidad).toFixed(2)}
+                    </li>
+                `).join("")}
+            </ul>
+            <hr>
+            <p>Subtotal: $${t.subtotal.toFixed(2)}</p>
+            <p>Descuento: $${t.descuento.toFixed(2)}</p>
+            <p>IVA: $${t.impuesto.toFixed(2)}</p>
+            <h3 style="color: green;">
+                Total a pagar: $${t.total.toFixed(2)}
+            </h3>
+            <p style="color: green; font-weight: bold;">
+                ✅ Compra realizada con éxito
+            </p>
+        </div>
+    `;
+
+    // Limpiamos la interfaz (opcional pero prolijo)
     catalogoDiv.innerHTML = "";
     carritoDiv.innerHTML = "";
     totalesDiv.innerHTML = "";
     resumenDiv.innerHTML = "";
 
-    // Creamos la factura
-    const facturaDiv = document.createElement("div");
-    facturaDiv.className = "factura";
-    facturaDiv.innerHTML = `
-        <h2>Factura de Compra</h2>
-        <p><strong>Cliente:</strong> ${usuario.nombre} ${usuario.apellido}</p>
-        <p><strong>Email:</strong> ${usuario.email}</p>
-        <hr>
-        <h3>Productos Comprados:</h3>
-        <ul>
-            ${carrito.map(item => `
-                <li>${item.nombre} x${item.cantidad} - $${(item.precio * item.cantidad).toFixed(2)}</li>
-            `).join("")}
-        </ul>
-        <hr>
-        <p>Subtotal: $${t.subtotal.toFixed(2)}</p>
-        <p>Descuento: $${t.descuento.toFixed(2)}</p>
-        <p>IVA: $${t.impuesto.toFixed(2)}</p>
-        <strong>Total a pagar: $${t.total.toFixed(2)}</strong>
-        <h3 style="color: green; margin-top: 1rem;">✅ Compra realizada con éxito</h3>
-        <button id="nuevaCompraBtn">Realizar nueva compra</button>
-    `;
+    // Mostrar factura en SweetAlert2
+    Swal.fire({
+        title: "🧾 Factura de Compra",
+        html: facturaHTML,
+        icon: "success",
+        width: 650,
+        confirmButtonText: "Realizar nueva compra",
+        confirmButtonColor: "#28a745",
+        allowOutsideClick: false,
+        draggable: true
+    }).then(() => {
+        // Limpiar carrito DESPUÉS de mostrar la factura
+        carrito = [];
+        localStorage.removeItem("carrito");
+        actualizarEstado();
 
-    resumenDiv.appendChild(facturaDiv);
-
-    // Limpiamos carrito
-    carrito = [];
-    localStorage.removeItem("carrito");
-    actualizarEstado();
-
-    // Evento para volver a comprar
-    document.getElementById("nuevaCompraBtn").addEventListener("click", () => {
+        // Volver a la tienda
         mostrarCatalogo();
         mostrarCarrito();
         mostrarTotales();
-        resumenDiv.innerHTML = "";
     });
-}
-
-// Modificamos mostrarResumen para llamar a mostrarFactura en lugar de solo actualizar resumen
-function mostrarResumen() {
-    mostrarFactura(); // Ahora muestra la factura completa
 }
