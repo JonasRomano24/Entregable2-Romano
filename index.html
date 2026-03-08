@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Tienda</title>
-    <link href="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.26.20/dist/sweetalert2.min.css
-" rel="hoja de estilo">
+    <title>Carrito - Tienda Tecnológica </title>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.20/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -25,68 +23,55 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.26.20/dist/sweetalert2.min.css
                     <span class="cart-count" id="cartCount">0</span>
                 </a>
 
-                <a href="/pages/productos.html" class="nav-link">
+                <a href="../pages/productos.html" class="nav-link">
                     <i class="fa-solid fa-box-open"></i>
                     Productos
                 </a>
+
+                
+
+                <div id="userArea"></div>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="catalogo" class="catalogo"></section>
 
-        <section id="carrito" class="carrito"></section>
+        <section class="carrito-layout">
 
-        <section id="totales" class="totales"></section>
+            <div class="carrito-items">
+                <section id="carrito"></section>
+            </div>
 
-        <section id="resumen" class="resumen"></section>
+            <div class="carrito-resumen">
 
-        <div class="botones">
-            <button id="vaciarBtn">Vaciar Carrito</button>
-            <button id="finalizarBtn">Finalizar Compra</button>
-        </div>
+                <section id="totales"></section>
+                <section id="resumen"></section>
+
+                <div class="botones">
+                    <button id="vaciarBtn">Vaciar Carrito</button>
+                    <button id="finalizarBtn">Finalizar Compra</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="recomendados">
+            <h2>Productos recomendados</h2>
+            <div id="recomendadosContainer"></div>
+        </section>
+
     </main>
 
-    <!-- Modal Registro -->
-    <div id="overlay" class="overlay hidden">
-        <div class="modal">
-            <h2>Registro de Usuario</h2>
-            <form id="registroForm">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" required>
 
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" required>
 
-                <label for="edad">Edad</label>
-                <input type="number" id="edad" required min="18">
-
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
-
-                <button type="submit">Registrar</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal Login -->
-    <div id="overlayLogin" class="overlay hidden">
-        <div class="modal">
-            <h2>Iniciar Sesión</h2>
-            <form id="loginForm">
-                <label for="loginEmail">Email</label>
-                <input type="email" id="loginEmail" required>
-                <button type="submit">Iniciar sesión</button>
-            </form>
-        </div>
-    </div>
     <script src="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.26.20/dist/sweetalert2.all.min.js
 "></script>
-    <script src="js/app.js"></script>
-    <script src="carrito.js"></script>
 
+    <script src="carrito.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>

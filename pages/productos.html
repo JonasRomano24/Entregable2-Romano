@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos - Tienda Tecnológica</title>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.20/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -16,19 +17,20 @@
             <h1>Tienda TECNOLOGICA</h1>
 
             <nav class="main-nav">
-                <a href="../index.html" class="nav-link carrito-link" id="cartBtn">
+                <a href="../index.html" class="nav-link">
                     <i class="fa-solid fa-cart-shopping"></i>
                     Carrito
                     <span class="cart-count" id="cartCount">0</span>
-
-                    <!-- MINI CART -->
-                    <div class="mini-cart" id="miniCart"></div>
                 </a>
 
-                <a href="/pages/productos.html" class="nav-link">
+                <a href="../pages/productos.html" class="nav-link">
                     <i class="fa-solid fa-box-open"></i>
                     Productos
                 </a>
+
+                
+
+                <div id="userArea"></div>
             </nav>
         </div>
     </header>
@@ -41,6 +43,7 @@
     </main>
 
     <script src="../js/productos.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 
 </html>
