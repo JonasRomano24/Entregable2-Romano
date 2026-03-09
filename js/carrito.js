@@ -22,7 +22,7 @@ const finalizarBtn = document.getElementById("finalizarBtn");
 // ===== FETCH PRODUCTOS =====
 async function cargarProductos() {
     try {
-        const response = await fetch("../json/productos.json");
+        const response = await fetch("../JSON/productos.json");
 
         if (!response.ok) {
             throw new Error("No se pudo cargar el JSON");
