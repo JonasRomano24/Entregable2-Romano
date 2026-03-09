@@ -28,7 +28,9 @@ async function cargarProductos() {
             throw new Error("No se pudo cargar el JSON");
         }
 
-        productos = await response.json();
+        const data = await response.json();
+        productos = data;
+
         mostrarRecomendados();
 
     } catch (error) {
