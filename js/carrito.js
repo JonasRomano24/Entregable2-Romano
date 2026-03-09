@@ -23,8 +23,14 @@ const finalizarBtn = document.getElementById("finalizarBtn");
 async function cargarProductos() {
     try {
         const response = await fetch("./json/productos.json");
+
+        if (!response.ok) {
+            throw new Error("No se pudo cargar el JSON");
+        }
+
         productos = await response.json();
         mostrarRecomendados();
+
     } catch (error) {
         console.error("Error cargando productos:", error);
     }
